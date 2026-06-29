@@ -1,9 +1,9 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════╗
- * ║  POLYBOLOS SDK — Core Type System                               ║
+ * ║  NASFUSION SDK — Core Type System                               ║
  * ║  Standardized Entity Model for Multi-Domain Intelligence        ║
  * ║                                                                 ║
- * ║  Built on OSIRIS by Souleimen Mrad                              ║
+ * ║  Built on NASNET by Naswif Cohen Nsamba                              ║
  * ╚══════════════════════════════════════════════════════════════════╝
  */
 
@@ -45,7 +45,7 @@ export enum Classification {
 
 // ── Core Entity Interface ──────────────────────────────────────────
 
-export interface PolybolosEntity {
+export interface NasFusionEntity {
   /** Globally unique entity identifier */
   id: string;
   /** Human-readable name or callsign */
@@ -133,13 +133,13 @@ export type LatticeConnectionStatus =
 
 // ── SDK Client Types ───────────────────────────────────────────────
 
-export interface PolybolosClientConfig {
-  /** Base URL for OSIRIS API endpoints */
-  osirisBaseUrl: string;
+export interface NasFusionClientConfig {
+  /** Base URL for NASNET API endpoints */
+  nasnetBaseUrl: string;
   /** Optional Lattice configuration */
   lattice?: LatticeConfig;
   /** Entity update callback */
-  onEntityUpdate?: (entities: PolybolosEntity[]) => void;
+  onEntityUpdate?: (entities: NasFusionEntity[]) => void;
   /** Connection status callback */
   onStatusChange?: (status: SDKStatus) => void;
 }
@@ -165,7 +165,7 @@ export type StreamEventType =
 export interface StreamEvent {
   type: StreamEventType;
   timestamp: string;
-  payload: PolybolosEntity[] | SDKStatus | { id: string }[];
+  payload: NasFusionEntity[] | SDKStatus | { id: string }[];
 }
 
 // ── Ingestion Types (External Push) ────────────────────────────────
@@ -176,7 +176,7 @@ export interface IngestPayload {
   /** Authentication key */
   apiKey: string;
   /** Entities to ingest */
-  entities: Partial<PolybolosEntity>[];
+  entities: Partial<NasFusionEntity>[];
 }
 
 export interface IngestResult {

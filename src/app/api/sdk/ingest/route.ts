@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════╗
- * ║  POLYBOLOS SDK — Ingestion Endpoint                             ║
+ * ║  NASFUSION SDK — Ingestion Endpoint                             ║
  * ║  Secure webhook for external platform data push                 ║
  * ║                                                                 ║
- * ║  POST /api/sdk/ingest → Accepts Polybolos-format entities       ║
+ * ║  POST /api/sdk/ingest → Accepts NasFusion-format entities       ║
  * ║  from external systems (e.g., Anduril Lattice) and merges       ║
  * ║  them into the Common Operating Picture.                        ║
  * ║                                                                 ║
@@ -30,7 +30,7 @@ if (!globalForSDK.sdkIngestLog) {
 
 // Simple API key validation (in production, use proper auth)
 const VALID_KEYS = new Set([
-  process.env.SDK_INGEST_KEY || 'polybolos-dev-key',
+  process.env.SDK_INGEST_KEY || 'nasfusion-dev-key',
   'lattice-integration-key',
 ]);
 
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   return NextResponse.json({
-    sdk: 'polybolos',
+    sdk: 'nasfusion',
     version: '1.0.0',
     entityCount: globalForSDK.sdkEntityStore.size,
     recentIngestions: globalForSDK.sdkIngestLog.slice(-10),

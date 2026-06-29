@@ -2,11 +2,11 @@ import { NextResponse } from 'next/server';
 
 /**
  * ╔══════════════════════════════════════════════════════════════════╗
- * ║  POLYBOLOS SDK — SSE Stream Endpoint                            ║
+ * ║  NASFUSION SDK — SSE Stream Endpoint                            ║
  * ║  Server-Sent Events for real-time entity streaming              ║
  * ║                                                                 ║
  * ║  GET /api/sdk/stream → Opens an SSE connection that pushes      ║
- * ║  normalized Polybolos entities to the client in real-time.       ║
+ * ║  normalized NasFusion entities to the client in real-time.       ║
  * ╚══════════════════════════════════════════════════════════════════╝
  */
 

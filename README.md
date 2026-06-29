@@ -1,11 +1,11 @@
 <div align="center">
 
-# ⬡ OSIRIS
+# ⬡ NASNET
 
 ### Open Source Intelligence & Reconnaissance Integrated System
 
-[![Live Demo](https://img.shields.io/badge/osirisai.live-00E5FF?style=for-the-badge&logo=vercel&logoColor=white)](https://osirislive.app)
-[![Support OSIRIS](https://img.shields.io/badge/Support_Project-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/posts/159077425)
+[![Live Demo](https://img.shields.io/badge/nasnetai.live-00E5FF?style=for-the-badge&logo=vercel&logoColor=white)](https://nasnetlive.app)
+[![Support NASNET](https://img.shields.io/badge/Support_Project-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/posts/159077425)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![MapLibre](https://img.shields.io/badge/MapLibre_GL-GPU_Rendered-396CB2?style=for-the-badge)](https://maplibre.org)
@@ -13,7 +13,7 @@
 
 **A real-time global intelligence dashboard that aggregates live flight tracking, CCTV networks, earthquake monitoring, conflict zone mapping, and 24/7 news feeds into a single GPU-accelerated interface.**
 
-[Live Demo](https://osirisai.live) · [Report Bug](https://github.com/simplifaisoul/osiris/issues) · [Request Feature](https://github.com/simplifaisoul/osiris/issues) · [Join Discord](https://discord.gg/umBykEpb98)
+[Live Demo](https://nasnetai.live) · [Report Bug](https://github.com/nastech-ai/nasnet/issues) · [Request Feature](https://github.com/nastech-ai/nasnet/issues) · [Join Discord](https://discord.gg/umBykEpb98)
 
 </div>
 
@@ -21,7 +21,7 @@
 
 ## Overview
 
-Osiris is a production-grade OSINT platform that provides situational awareness across multiple intelligence domains. Built with Next.js 16 and MapLibre GL, every data point is rendered via WebGL for 60fps performance even with thousands of concurrent entities on-screen.
+Nasnet is a production-grade OSINT platform that provides situational awareness across multiple intelligence domains. Built with Next.js 16 and MapLibre GL, every data point is rendered via WebGL for 60fps performance even with thousands of concurrent entities on-screen.
 
 ### Key Capabilities
 
@@ -47,7 +47,7 @@ Osiris is a production-grade OSINT platform that provides situational awareness 
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                  OSIRIS CLIENT                   │
+│                  NASNET CLIENT                   │
 │  ┌──────────┐  ┌──────────┐  ┌───────────────┐ │
 │  │ MapLibre  │  │  HUD     │  │  RECON Toolkit│ │
 │  │  GL (GPU) │  │ Panels   │  │  Port Scan    │ │
@@ -100,7 +100,7 @@ Osiris is a production-grade OSINT platform that provides situational awareness 
 
 ### Telegram OSINT Layer
 - **Public-channel feed** scraped from the unauthenticated `t.me/s/<channel>` web preview — no Bot API token, no MTProto
-- Default curated set of 5 channels (EN + RU/UA war reporting), overridable via `OSIRIS_TELEGRAM_CHANNELS`
+- Default curated set of 5 channels (EN + RU/UA war reporting), overridable via `NASNET_TELEGRAM_CHANNELS`
 - Posts are geoparsed against a multilingual place dictionary (EN + Cyrillic + Arabic) and plotted on the map
 - Click any cyan dot to read the post and jump to the original on Telegram
 
@@ -132,8 +132,8 @@ Osiris is a production-grade OSINT platform that provides situational awareness 
 ## Quick Start
 
 ```bash
-git clone https://github.com/simplifaisoul/osiris.git
-cd osiris
+git clone https://github.com/nastech-ai/nasnet.git
+cd nasnet
 npm install
 npm run dev
 ```
@@ -143,8 +143,8 @@ Open [http://localhost:3000](http://localhost:3000)
 ### Docker / Self-Hosting
 
 ```bash
-git clone https://github.com/simplifaisoul/osiris.git
-cd osiris
+git clone https://github.com/nastech-ai/nasnet.git
+cd nasnet
 cp .env.template .env     # optional — configure keys / port
 docker compose up -d
 ```
@@ -158,26 +158,26 @@ CasaOS and API-key guide.
 **Prebuilt image (GHCR)** — skip the build and pull it directly:
 
 ```bash
-docker pull ghcr.io/aiacos/osiris:latest
-docker run -d -p 3000:3000 --env-file .env ghcr.io/aiacos/osiris:latest
+docker pull ghcr.io/nastech-ai/nasnet:latest
+docker run -d -p 3000:3000 --env-file .env ghcr.io/nastech-ai/nasnet:latest
 ```
 
-**Custom port** — the container always listens on `3000`; set `OSIRIS_PORT` in
-`.env` to change the published host port (e.g. `OSIRIS_PORT=3005`) without
+**Custom port** — the container always listens on `3000`; set `NASNET_PORT` in
+`.env` to change the published host port (e.g. `NASNET_PORT=3005`) without
 editing the compose file.
 
 ### Environment Variables
 
-OSIRIS works **partially without any API keys** — all core feeds use public,
+NASNET works **partially without any API keys** — all core feeds use public,
 keyless sources. Copy [`.env.template`](.env.template) to `.env` and set only
 what you need:
 
 ```env
 # Published host port (container always listens on 3000). Default: 3000
-OSIRIS_PORT=3000
+NASNET_PORT=3000
 
 # RECON scanner backend (the only vars the current code reads).
-# SCANNER_KEY must match the backend's OSIRIS_KEY — generate with: openssl rand -hex 32
+# SCANNER_KEY must match the backend's NASNET_KEY — generate with: openssl rand -hex 32
 SCANNER_URL=
 SCANNER_KEY=
 
@@ -228,17 +228,17 @@ MIT — see [LICENSE](LICENSE) for details.
 
 <div align="center">
 
-**🛠️ SUPPORT THE OSIRIS PROJECT**
-The OSIRIS Global Intelligence Grid is entirely open-source, but running the backend scanners and data firehoses isn't cheap.
+**🛠️ SUPPORT THE NASNET PROJECT**
+The NASNET Global Intelligence Grid is entirely open-source, but running the backend scanners and data firehoses isn't cheap.
 
-If you want to help keep the servers alive, and support us to get access to better tools  unlock the **Special OSIRIS Console**, Currently Just a Cool UI. a you can officially support the project here : 
+If you want to help keep the servers alive, and support us to get access to better tools  unlock the **Special NASNET Console**, Currently Just a Cool UI. a you can officially support the project here : 
 
-🔗 [Support OSIRIS on Patreon](https://www.patreon.com/posts/159077425)
+🔗 [Support NASNET on Patreon](https://www.patreon.com/posts/159077425)
 
 *Supporters receive the `🔴 RedTeam Console` role and access to encrypted developer comms.*
 
 
-**Built by [simplifaisoul](https://github.com/simplifaisoul)**
+**Built by [nastech-ai](https://github.com/nastech-ai)**
 
 [Join our Discord to be a part of this movement!](https://discord.gg/umBykEpb98)
 

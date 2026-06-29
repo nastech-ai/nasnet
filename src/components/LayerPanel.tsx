@@ -31,7 +31,7 @@ const getLayerGroups = (theme: 'core' | 'ghost') => {
   return [
   {
     label: 'SDK',
-    fullLabel: 'OSIRIS SDK',
+    fullLabel: 'NASNET SDK',
     color: '#1565C0',
     layers: [
       { key: 'sdk_sea', label: 'Maritime Lines', icon: Anchor, color: '#4FC3F7', dataKey: 'sdk_entities' },

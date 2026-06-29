@@ -1,14 +1,14 @@
 /**
  * ╔══════════════════════════════════════════════════════════════════╗
- * ║  POLYBOLOS SDK — Lattice Adapter                                ║
+ * ║  NASFUSION SDK — Lattice Adapter                                ║
  * ║  Anduril Lattice Entity Translation Layer                       ║
  * ║                                                                 ║
- * ║  Translates Lattice Track/Sensor state → Polybolos Entities     ║
+ * ║  Translates Lattice Track/Sensor state → NasFusion Entities     ║
  * ╚══════════════════════════════════════════════════════════════════╝
  */
 
 import {
-  type PolybolosEntity,
+  type NasFusionEntity,
   type LatticeConfig,
   type LatticeConnectionStatus,
   Domain,
@@ -69,7 +69,7 @@ const ALLEGIANCE_COLOR_MAP: Record<string, string> = {
 export class LatticeAdapter {
   private config: LatticeConfig;
   private status: LatticeConnectionStatus = 'disconnected';
-  private entityBuffer: Map<string, PolybolosEntity> = new Map();
+  private entityBuffer: Map<string, NasFusionEntity> = new Map();
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
   private eventSource: EventSource | null = null;
 
@@ -83,7 +83,7 @@ export class LatticeAdapter {
   }
 
   /** All currently tracked Lattice entities */
-  getEntities(): PolybolosEntity[] {
+  getEntities(): NasFusionEntity[] {
     return Array.from(this.entityBuffer.values());
   }
 
@@ -166,19 +166,19 @@ export class LatticeAdapter {
   /**
    * Manually ingest a Lattice track (for webhook/push integrations).
    * This is the public API for external systems to push Lattice-format
-   * data directly into the Polybolos COP.
+   * data directly into the NasFusion COP.
    */
-  ingestTrack(track: LatticeTrack): PolybolosEntity {
+  ingestTrack(track: LatticeTrack): NasFusionEntity {
     const entity = this.translateTrack(track);
     this.entityBuffer.set(entity.id, entity);
     return entity;
   }
 
   /**
-   * Translate a raw Lattice Track into a normalized Polybolos Entity.
+   * Translate a raw Lattice Track into a normalized NasFusion Entity.
    * This is the core intelligence translation function.
    */
-  private translateTrack(track: LatticeTrack): PolybolosEntity {
+  private translateTrack(track: LatticeTrack): NasFusionEntity {
     const domain = LATTICE_DOMAIN_MAP[track.trackType] || Domain.LAND;
     const allegiance = track.allegiance || 'UNKNOWN';
     const threat = ALLEGIANCE_THREAT_MAP[allegiance] || ThreatLevel.ELEVATED;

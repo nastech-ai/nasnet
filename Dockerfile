@@ -5,7 +5,6 @@ RUN npm ci
 
 FROM node:22-alpine AS builder
 WORKDIR /app
-RUN apk add --no-cache libc6-compat
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

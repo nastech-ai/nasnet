@@ -1,0 +1,8 @@
+# Code Owners for NasNet
+# NasTech Agent (bot) is default reviewer for all code
+* @nastech-ai/nasnet-bot @nastech-ai
+
+# Critical files require admin review
+/docker-compose.yml @nastech-ai
+/Dockerfile @nastech-ai
+/.github/ @nastech-ai
